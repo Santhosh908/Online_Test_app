@@ -17,6 +17,16 @@ const Styles = StyleSheet.create({
     borderRadius: 20,
     marginTop: 200,
   },
+  input: {
+    marginTop: 10,
+    padding: 10,
+    color: 'black',
+    fontSize: 17,
+    borderBottomColor: 'grey',
+    borderBottomWidth: 2,
+    fontWeight: 'bold',
+    width: 220,
+  },
   logo1: {
     width: 110,
     height: 110,
@@ -31,13 +41,23 @@ const Styles = StyleSheet.create({
     flexDirection: 'row',
     borderRadius: 100,
   },
-  btn: {
+  btn1: {
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 10,
     elevation: 3,
+    backgroundColor: 'gold',
+  },
+  btn2: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    elevation: 3,
+    backgroundColor: 'red',
   },
   text1: {
     fontSize: 16,
@@ -51,11 +71,25 @@ const Styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#001a33',
     fontSize: 60,
+    color: 'white',
     borderBottomLeftRadius: 70,
     borderBottomRightRadius: 120,
   },
+  loginandsignup: {
+    backgroundColor: 'white',
+    marginTop: 150,
+    marginLeft: 10,
+    padding: 60,
+    alignItems: 'center',
+    borderRadius: 30,
+    position: 'absolute',
+  },
   container: {
     backgroundColor: 'black',
+  },
+  backscreen: {
+    backgroundColor: '#e6e6ff',
+    flex: 1,
   },
 });
 

@@ -1,61 +1,53 @@
-import {View, Text, Image, Button, Pressable} from 'react-native';
+import {View, Text, Image, Pressable} from 'react-native';
 import React from 'react';
 import Styles from '../styles/Styles.js';
-
-let flag1 = 0;
-let color1 = 'gold',
-  textcolor1 = 'black',
-  color2 = 'white',
-  textcolor2 = 'black';
-function change1() {
-  flag1 = 1;
-  color1 = 'gold';
-  textcolor1 = 'white';
-}
-function change2() {
-  flag1 = 0;
-  color2 = 'gold';
-  textcolor2 = 'white';
-  color1 = 'white';
-  textcolor1 = 'black';
-}
+import {useState} from 'react';
+import SignupScreen from '../screens/SignupScreen.js';
+import LoginScreen from '../screens/LoginScreen.js';
 
 const LandingScreen = () => {
+  const [islogged, setIslogged] = useState(true);
+
   return (
     <View>
       <View style={Styles.Landingtext}>
         <Text>Online Test App</Text>
       </View>
-      <View>
+      <View style={Styles.loginandsignup}>
         <Image
           style={Styles.logo1}
           source={require('../asserts/images/logo.jpg')}
         />
         <Text>{'\n'}</Text>
-        <View style={Styles.landingbutton}>
+        <View style={{flexDirection: 'row'}}>
           <Pressable
-            style={() => [
-              {backgroundColor: color1, color: textcolor1},
-              Styles.btn,
-            ]}
             onPress={() => {
-              change1();
-              console.log(color1);
+              setIslogged(true);
+            }}
+            style={{
+              backgroundColor: islogged ? 'gold' : 'transparent',
+              paddingVertical: 12,
+              paddingHorizontal: 32,
+              borderRadius: 4,
+              elevation: 3,
             }}>
-            <Text style={Styles.text1}>Log In</Text>
+            <Text style={Styles.text}>Log In</Text>
           </Pressable>
           <Pressable
-            style={() => [
-              {backgroundColor: color2, color: textcolor2},
-              Styles.btn,
-            ]}
             onPress={() => {
-              change2();
-              console.log(color1);
+              setIslogged(false);
+            }}
+            style={{
+              backgroundColor: islogged ? 'transparent' : 'gold',
+              paddingVertical: 12,
+              paddingHorizontal: 32,
+              borderRadius: 4,
+              elevation: 3,
             }}>
-            <Text style={Styles.text1}>Sign Up</Text>
+            <Text style={Styles.text}>Sign Up</Text>
           </Pressable>
         </View>
+        {islogged ? <LoginScreen /> : <SignupScreen />}
       </View>
     </View>
   );
